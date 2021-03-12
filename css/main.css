@@ -19,8 +19,26 @@
 
 /* SIDEBAR */
 aside {
+    color: #fff;
     background-color: black; 
     width: 300px;
+    padding: 20px;
+}
+
+aside .brand-logo {
+    height: 90px;
+}
+
+aside .brand-logo img {
+    width: 130px;
+}
+
+aside .nav-aside {
+    margin-bottom: 30px;
+}
+
+aside .playlist span {
+    display: block;
 }
 
 /* MAIN CONTENT */
