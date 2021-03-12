@@ -4,25 +4,85 @@
     box-sizing: border-box;
 }
 
+
 /* MAIN */
 
-.container {
+.container,
+.main-content .content .nav-bar,
+.main-content .content .cards {
     display: flex;
+}
+
+.container {
     height: calc(100vh - 90px);
 }
 
+/* SIDEBAR */
 aside {
     background-color: black; 
     width: 300px;
 }
 
+/* MAIN CONTENT */
 .main-content {
-    background-color: rgb(255, 128, 128);
+    position: relative;
     flex-grow: 1;
+    background-color: rgb(255, 128, 128);           /*FIXME:*/
+}
+
+/* top-bar */
+.main-content .top-bar {
+    position: absolute;
+    top: 0;
+    height: 90px;
+    width: 100%;
+    background-color: rgba(255, 238, 0, 0.2);       /*FIXME:*/
+}
+
+/* content body contiene tutto il contenuto ma non topbar */
+.main-content .content-body {
+    overflow-y: auto;
+    padding-top: 90px;
+    height: calc(100vh - 90px);
+}
+
+/* navbar */
+.main-content .content-body .nav-bar {
+    justify-content: center;
+    height: 60px;
+    background-color: gray;
+}
+
+/* links di navigazione */
+.main-content .content-body .nav-bar .nav-links {   
+    width: 40%;                                      /*FIXME:*/
+    background-color: #fff;
+}
+
+/* contenuto */
+.main-content .content-body .content {
+    margin-top: 90px;
+    padding-left: 20px;
+}
+
+.main-content .content .section {
+    margin-top: 45px;
+}
+
+/* sezione section */
+.main-content .content .section .cards {
+    background-color: #fff;
+}
+
+.main-content .section .cards .song-card {
+    background-color: red;
+    height: 280px;
+    flex-basis: 180px;
+    margin-right: 13px;
 }
 
 /* FOOTER */
 footer {
-    background-color: rgb(68, 138, 68);
     height: 90px;
+    background-color: rgb(68, 138, 68);             /*FIXME:*/
 }
