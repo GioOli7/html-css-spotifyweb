@@ -9,6 +9,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* UTILITIES */
 
 
@@ -16,9 +20,12 @@ body {
 /* MAIN */
 
 aside,
+aside .top-sidebar,
 .container,
 .main-content .top-bar,
 .main-content .content-body .nav-bar,
+.main-content .content-body .nav-bar .nav-links,
+.main-content .content-body .nav-bar .nav-links ul,
 .main-content .content .section .cards,
 .main-content .section .cards .song-card {
     display: flex;
@@ -39,7 +46,7 @@ aside {
 }
 
 aside .brand-logo {
-    height: 90px;
+    min-height: 70px;
 }
 
 aside .brand-logo img {
@@ -48,6 +55,43 @@ aside .brand-logo img {
 
 aside .nav-aside {
     margin-bottom: 30px;
+}
+
+aside .top-sidebar {
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+aside .nav-aside > * {
+    margin-bottom: 5px;
+}
+
+aside #home::before {
+    content: url("../img/home.svg");
+    display: inline-block;
+    width: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+aside #search::before {
+    content: url("../img/search.svg");
+    display: inline-block;
+    width: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+aside #library::before {
+    content: url("../img/libreria.svg");
+    display: inline-block;
+    width: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+aside .playlist {
+    overflow: auto;
 }
 
 aside .playlist span {
@@ -82,7 +126,7 @@ aside .playlist span {
 }
 
 .main-content .top-bar .upgrade a {
-    margin-right: 5px;
+    margin-right: 20px;
     padding: 10px 25px;
     text-decoration: none;
     border: 1px solid #fff;
@@ -103,13 +147,25 @@ aside .playlist span {
 .main-content .content-body .nav-bar {
     justify-content: center;
     height: 60px;
-    background-color: gray;
 }
 
 /* links di navigazione */
 .main-content .content-body .nav-bar .nav-links {   
-    width: 40%;                                      /*FIXME:*/
-    background-color: #fff;
+    width: 55%;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content .content-body .nav-bar .nav-links ul{
+    width: 100%;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.main-content .content-body .nav-bar .nav-links ul li a {
+    color: gray;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /* CONTENUTO */
