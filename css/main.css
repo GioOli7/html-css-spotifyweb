@@ -3,3 +3,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* MAIN */
+
+.container {
+    display: flex;
+    height: calc(100vh - 90px);
+}
+
+aside {
+    background-color: black; 
+    width: 300px;
+}
+
+.main-content {
+    background-color: rgb(255, 128, 128);
+    flex-grow: 1;
+}
+
+/* FOOTER */
+footer {
+    background-color: rgb(68, 138, 68);
+    height: 90px;
+}
