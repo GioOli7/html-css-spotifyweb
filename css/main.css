@@ -1,16 +1,26 @@
+/* GENERAL */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* UTILITIES */
+
+
 
 /* MAIN */
 
 aside,
 .container,
-.main-content .content .nav-bar,
-.main-content .content .cards {
+.main-content .top-bar,
+.main-content .content-body .nav-bar,
+.main-content .content .section .cards,
+.main-content .section .cards .song-card {
     display: flex;
 }
 
@@ -52,7 +62,8 @@ aside .playlist span {
 .main-content {
     position: relative;
     flex-grow: 1;
-    background-color: rgb(255, 128, 128);           /*FIXME:*/
+    background-color: #141922; 
+    color: #fff;
 }
 
 /* top-bar */
@@ -61,7 +72,24 @@ aside .playlist span {
     top: 0;
     height: 90px;
     width: 100%;
-    background-color: rgba(255, 238, 0, 0.2);       /*FIXME:*/
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: right;
+}
+
+.main-content .top-bar {
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.main-content .top-bar .upgrade a {
+    margin-right: 5px;
+    padding: 10px 25px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /* content body contiene tutto il contenuto ma non topbar */
@@ -84,26 +112,60 @@ aside .playlist span {
     background-color: #fff;
 }
 
-/* contenuto */
+/* CONTENUTO */
 .main-content .content-body .content {
-    margin-top: 90px;
     padding-left: 20px;
 }
 
+/* sezione section */
 .main-content .content .section {
     margin-top: 45px;
 }
 
-/* sezione section */
-.main-content .content .section .cards {
-    background-color: #fff;
+.main-content .content .section > p{
+    margin-top: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: gray;
 }
 
+.main-content .content .section .cards {
+    margin-top: 1.5rem;
+}
+
+/* song card */
 .main-content .section .cards .song-card {
-    background-color: red;
-    height: 280px;
+    flex-direction: column;
+    /* height: 280px; */
     flex-basis: 180px;
     margin-right: 13px;
+    text-align: center;
+    color: #fff;
+}
+
+.main-content .section .cards .song-card p {
+    color: gray;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.main-content .section .cards .song-card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-content .section .cards .song-card .image.rounded img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: none;
+}
+
+.main-content .section .cards .song-card .title {
+    margin-top: 20px;
+    line-height: 25px;
 }
 
 /* FOOTER */
