@@ -39,9 +39,10 @@ aside .top-sidebar,
 aside {
     flex-direction: column;
     justify-content: space-between;
-    color: #fff;
+    /* color: #fff; */
+    color: gray;
     background-color: black; 
-    width: 300px;
+    min-width: 230px;
     padding: 20px;
 }
 
@@ -63,44 +64,74 @@ aside .top-sidebar {
 }
 
 aside .nav-aside > * {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-aside #home::before {
+aside .nav-aside .icon:before {
+    display: inline-block;
+    width: 25px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+aside .icon#home::before {
     content: url("../img/home.svg");
-    display: inline-block;
-    width: 20px;
-    margin-right: 5px;
-    vertical-align: middle;
 }
 
-aside #search::before {
+aside .icon#search::before {
     content: url("../img/search.svg");
-    display: inline-block;
-    width: 20px;
-    margin-right: 5px;
-    vertical-align: middle;
 }
 
-aside #library::before {
+aside .icon#library::before {
     content: url("../img/libreria.svg");
-    display: inline-block;
-    width: 20px;
-    margin-right: 5px;
-    vertical-align: middle;
 }
+
 
 aside .playlist {
     overflow: auto;
+    /* color: gray; */
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 38px;
+}
+
+aside .playlist :first-child{
+    color: white;
+}
+
+aside .playlist .icon {
+    font-size: 14px;
+}
+
+aside .playlist .icon::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f0fe";
+    font-size: 45px;
+    line-height: 50px;
+    margin-right: 5px;
+    vertical-align: middle;
 }
 
 aside .playlist span {
     display: block;
+    font-size: 12px;
 }
 
-/* aside .account {
-    justify-self: flex-end;
-} */
+aside .account {
+    /* justify-self: flex-end; */
+}
+
+aside .account #install {
+    font-size: 12px;
+}
+
+aside .account #install::before {
+    content: url("../img/download.svg");
+    display: inline-block;
+    width: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
 
 /* MAIN CONTENT */
 .main-content {
@@ -151,20 +182,26 @@ aside .playlist span {
 
 /* links di navigazione */
 .main-content .content-body .nav-bar .nav-links {   
-    width: 55%;
+    width: 65%;
     align-items: center;
     justify-content: center;
 }
 
 .main-content .content-body .nav-bar .nav-links ul{
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     list-style: none;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.main-content .content-body .nav-bar .nav-links ul li {
+    margin-top: 20px;
 }
 
 .main-content .content-body .nav-bar .nav-links ul li a {
     color: gray;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -187,14 +224,16 @@ aside .playlist span {
 
 .main-content .content .section .cards {
     margin-top: 1.5rem;
+    gap: 13px;
 }
 
 /* song card */
 .main-content .section .cards .song-card {
     flex-direction: column;
     /* height: 280px; */
-    flex-basis: 180px;
-    margin-right: 13px;
+    /* flex-basis: 180px; */
+    width: calc(100% / 6 - 13px);
+    /* margin-right: 13px; */  /* utilizzo la propr. GAP di flex */
     text-align: center;
     color: #fff;
 }
@@ -226,6 +265,182 @@ aside .playlist span {
 
 /* FOOTER */
 footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 90px;
-    background-color: rgb(68, 138, 68);             /*FIXME:*/
+    background-color: #282828;
+}
+
+/* LEFT CONTENT */
+
+footer .left-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 220px;
+    height: 70%;
+    padding-left: 10px;
+}  
+
+footer .left-content .album {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+
+footer .left-content .album .title{
+    line-height: 0.7;
+}
+
+footer .left-content .album .title span {
+    font-size: 10px;
+    font-weight: bold;
+    color: gray;
+}
+
+footer .left-content img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+footer .left-content .icons i {
+    color: gray;
+    display: inline-block;
+}
+
+footer .left-content .icons i:first-child {
+    margin-right: 10px;
+}
+
+/* PLAYER CENTER CONTENT TODO:*/ 
+
+footer .player {
+    flex-basis: 550px;
+    background-color: red;
+    height: 60%;
+}
+
+
+/* RIGHT CONTENT */
+
+footer .right-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: 220px;
+    color: #fff;
+    font-size: 14px;
+    padding-right: 10px;
+}
+
+footer .right-content .bar {
+    background-color: gray;
+    height: 5px;
+    width: 60%;
+    border-radius: 5px;
+}
+
+footer .right-content .bar .progress-bar {
+    background-color: lightgray;
+    height: 100%;
+    width: 30%;
+    border-radius: 5px;
+
+}
+
+
+/* RESPONSIVE DESKTOP FIRST */
+
+@media screen and (min-width: 1201px) {
+    .visible-xs {
+        display: none;
+    }
+}
+
+/* > 768px < 1200 */
+
+@media screen and (max-width: 1200px) {
+    .visible-xs {
+        display: none;
+    }
+
+    .main-content .section .cards .song-card .title .song-title{
+        font-size: 14px;
+    }
+
+    .main-content .section .cards .song-card .title .subtitle{
+        font-size: 12px;
+    }
+
+    .main-content .content-body .nav-bar .nav-links {
+        width: 90%;
+    }
+
+    .main-content .content .section .cards {
+        flex-wrap: wrap;
+    }
+
+    .main-content .section .cards .song-card {
+        width: calc(100% / 4 - 13px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .visible-xs {
+        display: none;
+    }
+
+    .main-content .section .cards .song-card {
+        width: calc(100% / 2 - 13px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hidden-xs {
+        display: none;
+    }
+
+    .visible-xs {
+        display: block;
+    }
+
+    aside {
+        min-width: 50px;
+        max-width: 50px;
+        padding: 7px;
+    }
+
+    aside .brand-logo {
+        min-height: 50px;
+    }
+
+    aside .brand-logo img {
+        width: 100%;
+    }
+
+    aside .top-sidebar .nav-aside.visible-xs {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+    }
+
+    aside .bottom-sidebar.visible-xs {
+        text-align: center;
+    }
+
+    aside .bottom-sidebar.visible-xs svg.install {
+        width: 20px;
+    }
+    
+    aside .bottom-sidebar.visible-xs svg.profile-img {
+        width: 30px;
+        margin-top: 10px;
+    }
+    
+    aside .top-sidebar svg {
+        max-height: 30px;
+    }
 }
