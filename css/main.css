@@ -443,10 +443,22 @@ footer .right-content .bar .progress-bar {
         width: 100%;
     }
 
+    aside .top-sidebar {
+        padding: 0;
+    }
+
     aside .top-sidebar .nav-aside.visible-xs {
         display: flex;
         flex-direction: column;
         justify-items: center;
+    }
+
+    aside .account {
+        height: auto;
+        overflow-y: hidden;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 0;
     }
 
     aside .bottom-sidebar.visible-xs {
