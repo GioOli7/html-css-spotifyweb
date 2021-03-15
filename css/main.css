@@ -379,6 +379,7 @@ footer .left-content .album {
     display: flex;
     align-items: center;
     color: #fff;
+    margin-right: 10px;
 }
 
 footer .left-content .album .title{
@@ -418,6 +419,8 @@ footer .player {
     align-items: center;
     flex-basis: 550px;
     height: 80%;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 /* cursor pointer a tutte le icone fontawesome nel footer */
@@ -514,6 +517,10 @@ footer .right-content {
     padding-right: 10px;
 }
 
+footer .right-content .fas {
+    margin-right: 5px;
+}
+
 /* stile barra riproduzione per volume */
 footer .bar.volume {
     width: 60%;
@@ -554,6 +561,13 @@ footer .bar.volume {
     .main-content .section .cards .song-card {
         flex-basis: calc(100% / 4 - 13px);
     }
+
+    /* riduco lo spazio tra la barra di avanzamento traccia
+    e il testo del timing della traccia */
+    footer .bar.time {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
 }
 
 /* da 768 a 601 px*/
@@ -565,6 +579,11 @@ footer .bar.volume {
     .main-content .section .cards .song-card {
         flex-basis: calc(100% / 2 - 13px);
     }
+
+    footer .player {
+        flex-basis: 490px;
+    }
+    
 }
 
 /* da 550 (minima risoluzione supportata) ai 600 */
@@ -624,5 +643,9 @@ footer .bar.volume {
     
     aside .top-sidebar svg {
         max-height: 30px;
+    }
+
+    footer .player {
+        flex-basis: 280px;
     }
 }
