@@ -21,6 +21,7 @@ a:hover {
 
 /* UTILITIES */
 
+/* attiva una piccola barretta verde sotto la tab "attiva" */
 .active:after {
     content: "";  
     display: block;
@@ -31,18 +32,6 @@ a:hover {
 }
 
 /* MAIN */
-
-/* aside, */
-/* aside .top-sidebar, */
-/* .container, */
-/* .main-content .top-bar, */
-/* .main-content .content-body .nav-bar, */
-/* .main-content .content-body .nav-bar .nav-links, */
-/* .main-content .content-body .nav-bar .nav-links ul, */
-/* .main-content .content .section .cards, */
-/* .main-content .section .cards .song-card { */
-    /* display: flex; */
-/* } */
 
 .container {
     display: flex;
@@ -74,6 +63,7 @@ aside .nav-aside {
     margin-bottom: 30px;
 }
 
+/* Parte superiore della sidebar */
 aside .top-sidebar {
     height: calc(100% - 50px); /*50px altezza del box account*/
     min-height: 290px;
@@ -83,6 +73,7 @@ aside .top-sidebar {
     padding: 20px;
 }
 
+/* navigazione sidebar principale */
 aside .nav-aside a {
     display: block;
     font-size: 14px;
@@ -90,10 +81,12 @@ aside .nav-aside a {
     margin-bottom: 10px;
 }
 
+/* stile tab home */
 aside .icon#home {
     color: #fff;
 }
 
+/* stile generale delle icone */
 aside .nav-aside .icon:before {
     display: inline-block;
     width: 25px;
@@ -101,6 +94,7 @@ aside .nav-aside .icon:before {
     vertical-align: middle;
 }
 
+/* link alle icone */
 aside .icon#home::before {
     content: url("../img/home.svg");
 }
@@ -115,7 +109,6 @@ aside .icon#library::before {
 
 aside .playlist {
     overflow-Y: auto;
-    /* color: gray; */
     font-weight: bold;
     font-size: 14px;
     line-height: 38px;
@@ -138,13 +131,8 @@ aside .playlist .icon::before {
     vertical-align: middle;
 }
 
-aside .playlist span {
-    display: block;
-    font-size: 12px;
-}
-
+/* account */
 aside .account {
-    /* justify-self: flex-end; */
     height: 70px;
     overflow-y: hidden;
     padding-left: 20px;
@@ -152,10 +140,12 @@ aside .account {
     margin-bottom: 10px;
 }
 
+/* installa app */
 aside .account #install {
     font-size: 12px;
 }
 
+/* profilo */
 aside .account .profile {
     color: #fff;
     font-weight: bold;
@@ -192,6 +182,8 @@ aside .account hr {
 /* top-bar */
 .main-content .top-bar {
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
     position: absolute;
     top: 0;
     height: 90px;
@@ -201,11 +193,7 @@ aside .account hr {
     z-index: 10;
 }
 
-.main-content .top-bar {
-    justify-content: flex-end;
-    align-items: center;
-}
-
+/* bottone upgrade in alto a destra */
 .main-content .top-bar .upgrade a {
     margin-right: 20px;
     padding: 10px 25px;
@@ -217,6 +205,7 @@ aside .account hr {
     font-weight: bold;
 }
 
+/* ingrandisco il bottone con una transition */
 .main-content .top-bar .upgrade{
     transition: all 0.15s;
 }
@@ -278,6 +267,7 @@ aside .account hr {
     margin-top: 45px;
 }
 
+/* stile sottotitolo di SEZIONE (NON della song) */
 .main-content .content .section > p{
     margin-top: 15px;
     font-size: 12px;
@@ -285,6 +275,7 @@ aside .account hr {
     color: gray;
 }
 
+/* contenitore delle song-cards */
 .main-content .content .section .cards {
     display: flex;
     margin-top: 1.5rem;
@@ -297,14 +288,15 @@ aside .account hr {
     flex-direction: column;
     /* height: 280px; */
     /* flex-basis: 180px; */
-    width: calc(100% / 6 - 13px);
+    flex-basis: calc(100% / 6 - 13px);
     margin-right: 13px;
     margin-bottom: 13px;
     text-align: center;
     color: #fff;
 }
 
-.main-content .section .cards .song-card p {
+/* stile sottotitolo canzone/album */
+.main-content .section .cards .song-card .subtitle {
     color: gray;
     font-size: 14px;
     font-weight: bold;
@@ -315,11 +307,13 @@ aside .account hr {
     cursor: pointer;
 }
 
+/* FIXME: */
 .main-content .section .cards .song-card .title:hover + .image .layover,
 .main-content .section .cards .song-card .image:hover .layover {
     opacity: 1;
 }
 
+/* layover */
 .main-content .section .cards .song-card .layover {
     display: flex;
     justify-content: center;
@@ -334,12 +328,14 @@ aside .account hr {
     transition: .3s;
 }
 
+/* immagine card */
 .main-content .section .cards .song-card .image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+/* stile immagine rotondo */
 .main-content .section .cards .song-card .image.rounded img {
     width: 100%;
     height: 100%;
@@ -385,7 +381,6 @@ footer .left-content .album {
     color: #fff;
 }
 
-
 footer .left-content .album .title{
     line-height: 0.7;
 }
@@ -415,7 +410,7 @@ footer .left-content .icons i:first-child {
     margin-right: 10px;
 }
 
-/* PLAYER CENTER CONTENT TODO:*/ 
+/* PLAYER CENTER CONTENT */ 
 
 footer .player {
     display: flex;
@@ -425,6 +420,12 @@ footer .player {
     height: 80%;
 }
 
+/* cursor pointer a tutte le icone fontawesome nel footer */
+footer .fas {
+    cursor: pointer;
+}
+
+/* sezione con i controlli di riproduzione */
 footer .player .controls {
     display: flex;
     justify-content: space-between;
@@ -437,8 +438,16 @@ footer .player .controls {
 /* play button */
 footer .player .controls .fa-play-circle {
     font-size: 28px;
+    transition: 0.1s;
+    cursor: pointer;
 }
 
+/* piccola animazione sul bottone play */
+footer .player .controls .fa-play-circle:hover {
+    transform: scale(1.15);
+}
+
+/* sottosezione track */
 footer .player .track {
     display: flex;
     justify-content: space-between;
@@ -447,32 +456,51 @@ footer .player .track {
     width: 100%;
 }
 
+/* stile testo con il timing della traccia */
 footer .player .track .time {
     font-size: 10px;
     font-weight: bold;
     color: #fff;
 }
 
+/* barra di riproduzione stile generale */
 footer .bar {
     background-color: gray;
     height: 5px;
     border-radius: 5px;
 }
 
+/* stile barra riproduzione per traccia - - stile volume dopo*/
 footer .bar.time {
     width: 100%;
     margin-left: 25px;
     margin-right: 25px;
 }
 
+/* stile barra interna di avanzamento */
 footer .bar .progress-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     background-color: lightgray;
     height: 100%;
     width: 30%;
     border-radius: 5px;
 }
 
+/* in hover cambia colore */
+footer .bar:hover .progress-bar {
+    background-color: #adff2f;
+}
 
+/* e appare un pallino sulla progress bar */
+footer .bar:hover .progress-bar:after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f111";
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+}
 
 /* RIGHT CONTENT */
 
@@ -486,14 +514,14 @@ footer .right-content {
     padding-right: 10px;
 }
 
+/* stile barra riproduzione per volume */
 footer .bar.volume {
     width: 60%;
 }
 
-
-
 /* RESPONSIVE DESKTOP FIRST */
 
+/* dai 1201 in su */
 @media screen and (min-width: 1201px) {
     .visible-xs {
         display: none;
@@ -524,20 +552,22 @@ footer .bar.volume {
     }
 
     .main-content .section .cards .song-card {
-        width: calc(100% / 4 - 13px);
+        flex-basis: calc(100% / 4 - 13px);
     }
 }
 
+/* da 768 a 601 px*/
 @media screen and (max-width: 768px) {
     .visible-xs {
         display: none;
     }
 
     .main-content .section .cards .song-card {
-        width: calc(100% / 2 - 13px);
+        flex-basis: calc(100% / 2 - 13px);
     }
 }
 
+/* da 550 (minima risoluzione supportata) ai 600 */
 @media screen and (max-width: 600px) {
     .hidden-xs {
         display: none;
