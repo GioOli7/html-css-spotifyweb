@@ -295,7 +295,7 @@ aside .account hr {
     margin-bottom: 13px;
     text-align: center;
     color: #fff;
-    height: fit-content;        /* utilizzo questa propietà per rendere l'hover sulle song-card più coerente */
+    height: fit-content;        /* utilizzo questa proprietà per rendere l'hover sulle song-card più coerente */
     height: -moz-fit-content;   /* compatibilità con Firefox */
 }
 
