@@ -10,12 +10,25 @@ body {
 }
 
 a {
+    color: gray;
     text-decoration: none;
+}
+
+a:hover {
+    filter: brightness(2);
+    cursor: pointer;
 }
 
 /* UTILITIES */
 
-
+.active:after {
+    content: "";  
+    display: block;
+    margin: 0 auto;
+    width: 50%; 
+    padding-top: 5px;
+    border-bottom: 2px solid #adff2f;
+}
 
 /* MAIN */
 
@@ -70,8 +83,15 @@ aside .top-sidebar {
     padding: 20px;
 }
 
-aside .nav-aside > * {
+aside .nav-aside a {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
     margin-bottom: 10px;
+}
+
+aside .icon#home {
+    color: #fff;
 }
 
 aside .nav-aside .icon:before {
@@ -93,7 +113,6 @@ aside .icon#library::before {
     content: url("../img/libreria.svg");
 }
 
-
 aside .playlist {
     overflow-Y: auto;
     /* color: gray; */
@@ -102,7 +121,7 @@ aside .playlist {
     line-height: 38px;
 }
 
-aside .playlist :first-child{
+aside .playlist h4{
     color: white;
 }
 
@@ -126,23 +145,39 @@ aside .playlist span {
 
 aside .account {
     /* justify-self: flex-end; */
-    height: 50px;
+    height: 70px;
     overflow-y: hidden;
     padding-left: 20px;
     padding-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 aside .account #install {
     font-size: 12px;
 }
 
-aside .account #install::before {
-    content: url("../img/download.svg");
+aside .account .profile {
+    color: #fff;
+    font-weight: bold;
+}
+
+aside .account .icon::before {
     display: inline-block;
     width: 20px;
-    margin-right: 5px;
+    margin-right: 10px;
     vertical-align: middle;
+}
+
+aside .account #install::before {
+    content: url("../img/download.svg");
+}
+
+aside .account .profile::before {
+    content: url("../img/profile.svg");
+}
+
+aside .account hr {
+    margin: 5px 0 10px;
 }
 
 /* MAIN CONTENT */
@@ -163,6 +198,7 @@ aside .account #install::before {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     text-align: right;
+    z-index: 10;
 }
 
 .main-content .top-bar {
@@ -179,6 +215,14 @@ aside .account #install::before {
     color: white;
     font-size: 14px;
     font-weight: bold;
+}
+
+.main-content .top-bar .upgrade{
+    transition: all 0.15s;
+}
+
+.main-content .top-bar .upgrade:hover {
+    transform: scale(1.1);
 }
 
 /* content body contiene tutto il contenuto ma non topbar */
@@ -266,6 +310,30 @@ aside .account #install::before {
     font-weight: bold;
 }
 
+.main-content .section .cards .song-card .image {
+    position: relative;
+    cursor: pointer;
+}
+
+.main-content .section .cards .song-card .title:hover + .image .layover,
+.main-content .section .cards .song-card .image:hover .layover {
+    opacity: 1;
+}
+
+.main-content .section .cards .song-card .layover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 60px;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: .3s;
+}
+
 .main-content .section .cards .song-card .image img {
     width: 100%;
     height: 100%;
@@ -283,6 +351,12 @@ aside .account #install::before {
 .main-content .section .cards .song-card .title {
     margin-top: 20px;
     line-height: 25px;
+}
+
+.main-content .section .cards .song-card .title .song-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
 }
 
 /* FOOTER */
@@ -316,10 +390,14 @@ footer .left-content .album .title{
     line-height: 0.7;
 }
 
-footer .left-content .album .title span {
+footer .left-content .album .title a {
     font-size: 10px;
     font-weight: bold;
     color: gray;
+}
+
+footer .left-content .album .title a:hover {
+    text-decoration: underline;
 }
 
 footer .left-content img {
@@ -340,10 +418,60 @@ footer .left-content .icons i:first-child {
 /* PLAYER CENTER CONTENT TODO:*/ 
 
 footer .player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-basis: 550px;
-    background-color: red;
-    height: 60%;
+    height: 80%;
 }
+
+footer .player .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    height: 50%;
+    color: #fff;
+}
+
+/* play button */
+footer .player .controls .fa-play-circle {
+    font-size: 28px;
+}
+
+footer .player .track {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+
+footer .player .track .time {
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+}
+
+footer .bar {
+    background-color: gray;
+    height: 5px;
+    border-radius: 5px;
+}
+
+footer .bar.time {
+    width: 100%;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+footer .bar .progress-bar {
+    background-color: lightgray;
+    height: 100%;
+    width: 30%;
+    border-radius: 5px;
+}
+
 
 
 /* RIGHT CONTENT */
@@ -358,20 +486,10 @@ footer .right-content {
     padding-right: 10px;
 }
 
-footer .right-content .bar {
-    background-color: gray;
-    height: 5px;
+footer .bar.volume {
     width: 60%;
-    border-radius: 5px;
 }
 
-footer .right-content .bar .progress-bar {
-    background-color: lightgray;
-    height: 100%;
-    width: 30%;
-    border-radius: 5px;
-
-}
 
 
 /* RESPONSIVE DESKTOP FIRST */
