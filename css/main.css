@@ -308,8 +308,8 @@ aside .account hr {
 }
 
 /* FIXME: */
-.main-content .section .cards .song-card .title:hover + .image .layover,
-.main-content .section .cards .song-card .image:hover .layover {
+/* .main-content .section .cards .song-card .song-title:hover ~ .image .layover, */
+.main-content .section .cards .song-card:hover .image .layover {
     opacity: 1;
 }
 
@@ -326,6 +326,10 @@ aside .account hr {
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.5);
     transition: .3s;
+}
+
+.layover.rounded {
+    border-radius: 50%;
 }
 
 /* immagine card */
