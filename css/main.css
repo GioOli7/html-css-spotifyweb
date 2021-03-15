@@ -31,6 +31,10 @@ a:hover {
     border-bottom: 2px solid #adff2f;
 }
 
+.txt-center {
+    text-align: center;
+}
+
 /* MAIN */
 
 .container {
